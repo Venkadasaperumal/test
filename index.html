@@ -22,12 +22,44 @@
     
     <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="js/focus-visible.js" defer></script>
-
+	<style>
+	*{
+margin: 0;
+padding: 0;
+}
+.demo{
+height: 100vh;
+width: 100%;
+}
+,demo model-viewer{
+width: 100%;
+height: 100%;
+}
+.btn-container{
+postion: absolute;
+bottom: 50px;
+width: 100%;
+text-align: center;
+}
+button{
+border: none;
+background: #edda73;
+height: 40px;
+width: 150px;
+margin: 5px 15px;
+cursor: pointer;
+font-weight: bold;
+font-size: 16px;
+}
+button:focus{
+outline: none;
+}
+</style>
   </head> 
 <body>
   <div id="card">
     <!-- All you need to put beautiful, interactive 3D content on your site: -->
-    <model-viewer src="lta.glb"
+    <model-viewer src="Model/Human Eye GLB.glb"
                   alt=""
                   shadow-intensity="0"
 				  id="viewer-singleton"
@@ -37,12 +69,18 @@
                    ar
 				   ar-scale=""
 				   exposure="1"
-				  poster="Images/Poster.png">
+				  poster="Images/Poster.png" animation-name="Layer1" autoplay ar>
     </model-viewer>
-
-    <section class="attribution">
-      <h1> lta </h1>
+	     <div class="btn-container">
+		      <button type="button" onclick="Layer1()">Layer1</button>
+			  <button type="button" onclick="Layer2()">Layer2</button>
+			  <button type="button" onclick="Layer3()">Layer3</button>
+			  <button type="button" onclick="Layer4()">Layer4</button>
+			  <button type="button" onclick="Layer5()">Layer5</button>
+			      <section class="attribution">
+      <h1> Human Eye GLB </h1>
         </div>
+		</div>
         <!-- 💁 Include both scripts below to support all browsers! -->
 
   <!-- Loads <model-viewer> for modern browsers: -->
@@ -57,14 +95,28 @@
   
   <script>
         (() => {
-          var checkExist = setInterval(function() {
-           if (document.querySelector("#viewer-singleton") != null) {
-              modelViewer = document.querySelector("#viewer-singleton");
-              modelViewer.activateAR();
-              clearInterval(checkExist);
+          var  modelViewer.activateAR();
+		       modelViewer = document.getElementByID('model');
+		  (function Layer1(){
+			     modelViewer.animationName = 'Layer1';
+				 }
+				 function Layer2(){
+				 modelViewer.animationName = 'Layer2';
+				 }
+				 function Layer3(){
+				 modelViewer.animationName = 'Layer3';
+				 }
+				 function Layer4(){
+				 modelViewer.animationName = 'Layer4';
+				 }
+				 function Layer5(){
+				 modelViewer.animationName = 'Layer5';
+				 }
+           
+				 
            }
-        }, 100);
-        })();
+         );
+        )();
     </script>
   
   
